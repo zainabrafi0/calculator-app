@@ -1,0 +1,15 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+
+# Environment Variables
+.env
+.env.local
+
+# Build outputs
+dist
+build
+
+# OS Files
+.DS_Store
