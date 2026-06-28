@@ -17,54 +17,66 @@ A complete MERN stack (MongoDB, Express, React, Node.js) monorepo application. I
 
 ---
 
+```markdown
 ## Installation Steps
 
-### 1. Clone the repository
-\`\`\`bash
-git clone <your-github-repo-url>
-cd calculator-app
-\`\`\`
+**1. Clone the repository**
+```bash
+git clone https://github.com/YOUR-USERNAME/secure-mern-calculator.git
+cd MY-CALCULATOR-APP
 
-### 2. Install Backend Dependencies
-\`\`\`bash
+```
+
+**2. Install Backend Dependencies**
+
+```bash
 cd backend
 npm install
-\`\`\`
 
-### 3. Install Frontend Dependencies
-\`\`\`bash
+```
+
+**3. Install Frontend Dependencies**
+
+```bash
 cd ../frontend
 npm install
-\`\`\`
+
+```
 
 ---
 
 ## Environment Variables
+
 Create a `.env` file inside the `backend/` directory with the following variables:
 
-\`\`\`env
+```env
 PORT=5001
-MONGO_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/calculator-app?retryWrites=true&w=majority
+MONGO_URI=mongodb+srv://@cluster.mongodb.net/calculator-app?retryWrites=true&w=majority
 JWT_SECRET=your_secure_jwt_secret
-\`\`\`
+
+```
 
 ---
 
 ## Running the Application
+
 To run the full-stack application locally, you will need two separate terminal windows.
 
 **Terminal 1 (Backend):**
-\`\`\`bash
+
+```bash
 cd backend
 npm run dev
-\`\`\`
+
+```
 
 **Terminal 2 (Frontend):**
-\`\`\`bash
+
+```bash
 cd frontend
 npm run dev
-\`\`\`
 
+```
 ---
 
 ## API Endpoints
@@ -86,3 +98,4 @@ npm run dev
 
 ## Author
 **Zainab Rafi**
+
