@@ -4,8 +4,18 @@ import api from '../api/axios'; // Need this to call the logout route!
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  // We still keep 'user' in localStorage so the UI remembers your name when you refresh
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem('user')) || null);
+
+const [user, setUser] = useState(() => {
+  const storedUser = localStorage.getItem('user');
+  if (!storedUser || storedUser === 'undefined') return null;
+  
+  try {
+    return JSON.parse(storedUser);
+  } catch (error) {
+    console.error('Failed to parse user data:', error);
+    return null; // Fallback to safely logged out
+  }
+});
 
 const login = (userData) => { 
     // Notice: We don't accept or save the token anymore!

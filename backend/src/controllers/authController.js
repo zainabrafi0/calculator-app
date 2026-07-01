@@ -20,13 +20,15 @@ exports.register = async (req, res) => {
     // 4. Generate the JWT (The VIP Pass)
     const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
+    //Creates(JWT). It embeds the user's unique database ID inside the token, signs it with your hidden .env secret key, and makes it valid for exactly 1 hour.
+
     // 5. Securely send the Cookie and the user data (Auto-Login)
     res.cookie('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'strict',
       maxAge: 3600000 // 1 hour
-    }).status(201).json({ 
+    }).status(201).json({ //201 Created success message
       user: { id: user._id, name: user.name, email: user.email } 
     });
 
@@ -61,7 +63,7 @@ exports.login = async (req, res) => {
 
 exports.deleteAccount = async (req, res) => {
   try {
-    // 1. (Optional but Pro-Level) Remove the user ID from their calculations so it is truly anonymous
+    // 1. Remove the user ID from their calculations so it is truly anonymous
     const Calculation = require('../models/Calculation');
     await Calculation.updateMany({ userId: req.user.id }, { $unset: { userId: "" } });
 

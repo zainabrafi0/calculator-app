@@ -11,5 +11,5 @@ node_modules
 dist
 build
 
-# OS Files
-.DS_Store
+# OS Files Mac system files
+.DS_Store 

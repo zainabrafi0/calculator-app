@@ -35,9 +35,6 @@ exports.createCalculation = async (req, res) => {
   }
 };
 
-// --------------------------------------------------------
-// REPLACE YOUR OLD getHistory WITH THIS NEW UPGRADED ONE:
-// --------------------------------------------------------
 exports.getHistory = async (req, res) => {
   try {
     // Extract query parameters from the request, setting defaults if they aren't provided

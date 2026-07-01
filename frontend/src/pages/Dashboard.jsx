@@ -33,7 +33,6 @@ export default function Dashboard() {
 
   useEffect(() => { fetchHistory(); }, [page, search, sort]);
 
-  // Handle calculator button presses
   const handlePress = (val) => {
     setError('');
     setExpression((prev) => prev + val);
@@ -51,8 +50,10 @@ export default function Dashboard() {
   const handleCalculate = async () => {
     if (!expression) return;
     try {
+      // Send the giant string directly to the backend!
       const { data } = await api.post('/calculations', { expression });
-      setExpression(String(data.result)); // Show result in display
+      
+      setExpression(String(data.result));
       setError('');
       setPage(1);
       fetchHistory();
@@ -60,7 +61,7 @@ export default function Dashboard() {
       setError(err.response?.data?.message || 'Invalid Expression');
     }
   };
-
+     
   const handleDeleteRecord = async (id) => {
     await api.delete(`/calculations/${id}`);
     fetchHistory();

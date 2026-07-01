@@ -1,4 +1,5 @@
-const mongoose = require('mongoose'); // <-- ADD THIS LINE!
+const mongoose = require('mongoose'); 
+//defining schema(structure)
 const userSchema = new mongoose.Schema({
   name: { type: String, required: true },
   email: { 
